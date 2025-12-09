@@ -1,0 +1,53 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Work Surface"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Work Surface"
+          }
+        }
+      }
+    },
+    "NSPhotoLibraryAddUsageDescription" : {
+      "comment" : "Privacy - Photo Library Additions Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "作品を写真ライブラリに保存するために使用します。"
+          }
+        }
+      }
+    },
+    "NSPhotoLibraryUsageDescription" : {
+      "comment" : "InfoPlist.strings\n  Work Surface\n\n  Created by 武田孝騎 on 2025/01/01.\n  Copyright © 2025 takasiki. All rights reserved.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Access to all photos\" is required in order for the photos to be reflected in the work. There is no effect on the photos."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写真を作品に反映させるためには\"すべての写真へのアクセス\"が必要です。写真への影響はありません。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
