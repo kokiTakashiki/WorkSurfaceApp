@@ -40,6 +40,24 @@ let project = Project(
         ]
     ),
     targets: [
+        // iOS専用フレームワーク
+        .target(
+            name: "WorkSurfaceiOSApp",
+            destinations: [.iPhone, .iPad],
+            product: .framework,
+            bundleId: "com.takashiki.workSurfaceApp.iOSApp",
+            deploymentTargets: .iOS("26.0"),
+            sources: [
+                .glob("Package/WorkSurfaceiOSApp/Sources/WorkSurfaceiOSApp/**/*.swift"),
+            ],
+            settings: .settings(
+                base: [
+                    "IPHONEOS_DEPLOYMENT_TARGET": "26.0",
+                    "TARGETED_DEVICE_FAMILY": "1,2",
+                ]
+            )
+        ),
+        
         // iOS App Target
         .target(
             name: "WorkSurfaceApp_iOS",
@@ -57,6 +75,9 @@ let project = Project(
                 .glob(pattern: "WorkSurfaceApp.icon/**"),
                 .glob(pattern: "WorkSurfaceApp/iOS/LaunchScreen.storyboard"),
             ],
+            dependencies: [
+                .target(name: "WorkSurfaceiOSApp"),
+            ],
             settings: .settings(
                 base: [
                     "ASSETCATALOG_COMPILER_APPICON_NAME": "WorkSurfaceApp",
@@ -65,7 +86,6 @@ let project = Project(
                     "IPHONEOS_DEPLOYMENT_TARGET": "26.0",
                     "SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD": "NO",
                     "SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD": "NO",
-                    "INFOPLIST_KEY_UIUserInterfaceStyle": "Dark",
                 ]
             )
         ),
@@ -90,7 +110,6 @@ let project = Project(
                     "ASSETCATALOG_COMPILER_APPICON_NAME": "WorkSurfaceApp",
                     "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
                     "MACOSX_DEPLOYMENT_TARGET": "26.0",
-                    "INFOPLIST_KEY_UIUserInterfaceStyle": "Dark",
                 ]
             )
         ),
@@ -116,7 +135,6 @@ let project = Project(
                     "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
                     "XROS_DEPLOYMENT_TARGET": "26.0",
                     "TARGETED_DEVICE_FAMILY": "7",
-                    "INFOPLIST_KEY_UIUserInterfaceStyle": "Dark",
                 ]
             )
         ),

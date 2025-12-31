@@ -1,14 +1,15 @@
 //
-//  WorkSurfaceApp.swift
+//  SceneDelegate.swift
 //  WorkSurfaceApp
 //
 //  Created by takashiki on 2025/12/07.
 //
 
 import UIKit
+import WorkSurfaceiOSApp
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     // MARK: Properties
 
     var window: UIWindow?
@@ -17,14 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(
         _ scene: UIScene,
-        willConnectTo session: UISceneSession,
-        options connectionOptions: UIScene.ConnectionOptions
+        willConnectTo _: UISceneSession,
+        options _: UIScene.ConnectionOptions
     ) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIViewController()
+            window.rootViewController = UIHostingController(rootView: WorkSurfaceWelcomeView())
             self.window = window
-            window.overrideUserInterfaceStyle = .dark
             window.makeKeyAndVisible()
         }
     }

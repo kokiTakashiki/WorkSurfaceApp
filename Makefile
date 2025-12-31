@@ -13,6 +13,10 @@ help:
 # 開発環境のセットアップ（SwiftFormat & Tuist）
 setup:
 	@echo "開発環境をセットアップしています..."
+	@if [ -d "WorkSurfaceApp.xcodeproj" ]; then \
+		echo "WorkSurfaceApp.xcodeprojを削除しています..."; \
+		rm -rf WorkSurfaceApp.xcodeproj; \
+	fi
 	@which brew > /dev/null || (echo "Homebrewがインストールされていません。まずHomebrewをインストールしてください。" && exit 1)
 	@echo "必要なツールをインストールしています..."
 	@if ! which swiftformat > /dev/null; then \
@@ -71,7 +75,11 @@ generate:
 		echo "Project.swiftファイルが見つかりません"; \
 		exit 1; \
 	fi
-	tuist generate
+	tuist generate --no-open
+	@if [ -d "WorkSurfaceApp.xcworkspace" ]; then \
+		echo "WorkSurfaceApp.xcworkspaceを削除しています..."; \
+		rm -rf WorkSurfaceApp.xcworkspace; \
+	fi
 	@echo "WorkSurfaceApp.xcodeprojの生成が完了しました"
 
 # XcodeでプロジェクトファイルをOpen
